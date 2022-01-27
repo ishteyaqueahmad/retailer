@@ -1,0 +1,8 @@
+com\tausif\Promotion.class
+io\junit\MathUtils.class
+com\tausif\Main.class
+com\tausif\PromotionOnQuantityOfItem.class
+com\tausif\Item.class
+com\tausif\PromotionalRules.class
+com\tausif\PromotionOnTotalPurchaseAmount.class
+com\tausif\CheckOut.class
