@@ -3,6 +3,13 @@ package com.tausif;
 import java.util.List;
 
 public class PromotionOnTotalPurchaseAmount implements Promotion{
+    private double thresholdAmount;
+    private  int percentageAmount;
+
+    public PromotionOnTotalPurchaseAmount(double thresholdAmount, int percentageAmount) {
+        this.thresholdAmount = thresholdAmount;
+        this.percentageAmount = percentageAmount;
+    }
 
 
     @Override
@@ -13,8 +20,12 @@ public class PromotionOnTotalPurchaseAmount implements Promotion{
     @Override
     public double applyPromotion(List<Item> items, double totalPurchaseAmount) {
         double discount = 0;
-        if (totalPurchaseAmount > 9000d)
-            discount = totalPurchaseAmount*(10/100.0f);
+
+        if (totalPurchaseAmount > thresholdAmount)
+        {
+
+            discount = totalPurchaseAmount*(percentageAmount /100.0f);
+        }
         return totalPurchaseAmount - discount;
     }
 }

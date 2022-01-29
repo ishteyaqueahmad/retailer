@@ -17,28 +17,28 @@ class PromotionOnTotalPurchaseAmountTest {
         @Test
         @DisplayName("test ApplyPromotion below 9000")
         void testApplyPromotion() {
-            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount();
+            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount(9000d, 10);
             assertEquals(8000, promotionOnTotalPurchaseAmount.applyPromotion(new ArrayList<>(), 8000));
         }
 
         @Test
         @DisplayName("test ApplyPromotion equal 9000")
         void testApplyPromotion2() {
-            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount();
+            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount(9000d, 10);
             assertEquals(9000, promotionOnTotalPurchaseAmount.applyPromotion(new ArrayList<>(), 9000));
         }
 
         @Test
         @DisplayName("test ApplyPromotion greater 9000")
         void testApplyPromotion3() {
-            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount();
+            PromotionOnTotalPurchaseAmount promotionOnTotalPurchaseAmount = new PromotionOnTotalPurchaseAmount(9000d, 10);
             assertEquals(8100.899986587465, promotionOnTotalPurchaseAmount.applyPromotion(new ArrayList<>(), 9001));
         }
     }
 
     @Test
     void testisActive() {
-        assertTrue((new PromotionOnTotalPurchaseAmount()).isActive());
+        assertTrue((new PromotionOnTotalPurchaseAmount(9000d, 10)).isActive());
     }
 }
 

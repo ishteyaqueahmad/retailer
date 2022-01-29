@@ -1,7 +1,6 @@
 package com.tausif;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
@@ -82,7 +81,8 @@ class CheckOutTest {
         void testTotal2() {
             testReporter.publishEntry("Running " + testInfo.getDisplayName());
             PromotionalRules promotionalRules = new PromotionalRules();
-            promotionalRules.addPromotions(new PromotionOnQuantityOfItem());
+
+            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002"));
             CheckOut checkOut = new CheckOut(promotionalRules);
             checkOut.addToBasket(keychain);
             checkOut.addToBasket(belt);
@@ -94,7 +94,7 @@ class CheckOutTest {
         @DisplayName("Testing total with only PromotionOnTotalPurchaseAmount offer")
         void testTotal3() {
             PromotionalRules promotionalRules = new PromotionalRules();
-            promotionalRules.addPromotions(new PromotionOnTotalPurchaseAmount());
+            promotionalRules.addPromotions(new PromotionOnTotalPurchaseAmount(9000d,10));
             CheckOut checkOut = new CheckOut(promotionalRules);
             checkOut.addToBasket(totebag);
             checkOut.addToBasket(keychain);
@@ -107,8 +107,8 @@ class CheckOutTest {
         @DisplayName("Testing total with both PromotionOnTotalPurchaseAmount and PromotionOnQuantityOfItem offer")
         void testTotal4() {
             PromotionalRules promotionalRules = new PromotionalRules();
-            promotionalRules.addPromotions(new PromotionOnQuantityOfItem());
-            promotionalRules.addPromotions(new PromotionOnTotalPurchaseAmount());
+            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002"));
+            promotionalRules.addPromotions(new PromotionOnTotalPurchaseAmount(9000d, 10));
             CheckOut checkOut = new CheckOut(promotionalRules);
             checkOut.addToBasket(totebag);
             checkOut.addToBasket(keychain);

@@ -25,7 +25,7 @@ class PromotionalRulesTest {
     @DisplayName("Testing AddPromotion")
     void testAddPromotions() {
         PromotionalRules promotionalRules = new PromotionalRules();
-        List<Promotion> actualAddPromotionsResult = promotionalRules.addPromotions(new PromotionOnQuantityOfItem());
+        List<Promotion> actualAddPromotionsResult = promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002"));
         assertSame(promotionalRules.promotions, actualAddPromotionsResult);
         assertEquals(1, actualAddPromotionsResult.size());
     }
