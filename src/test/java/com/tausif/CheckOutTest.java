@@ -82,7 +82,7 @@ class CheckOutTest {
             testReporter.publishEntry("Running " + testInfo.getDisplayName());
             PromotionalRules promotionalRules = new PromotionalRules();
 
-            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002"));
+            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002",2,5));
             CheckOut checkOut = new CheckOut(promotionalRules);
             checkOut.addToBasket(keychain);
             checkOut.addToBasket(belt);
@@ -107,7 +107,7 @@ class CheckOutTest {
         @DisplayName("Testing total with both PromotionOnTotalPurchaseAmount and PromotionOnQuantityOfItem offer")
         void testTotal4() {
             PromotionalRules promotionalRules = new PromotionalRules();
-            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002"));
+            promotionalRules.addPromotions(new PromotionOnQuantityOfItem("3000-002",2,5));
             promotionalRules.addPromotions(new PromotionOnTotalPurchaseAmount(9000d, 10));
             CheckOut checkOut = new CheckOut(promotionalRules);
             checkOut.addToBasket(totebag);

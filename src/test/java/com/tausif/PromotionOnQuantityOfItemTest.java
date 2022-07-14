@@ -21,7 +21,7 @@ class PromotionOnQuantityOfItemTest {
 
     @BeforeEach
     void init(TestInfo testInfo, TestReporter testReporter){
-        promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002");
+        promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002",2,5);
         this.testInfo=testInfo;
         this.testReporter= testReporter;
         itemList = new ArrayList<>();
@@ -37,7 +37,7 @@ class PromotionOnQuantityOfItemTest {
         @Test
         @DisplayName("test ApplyPromotion Without Keychain")
         void testApplyPromotion() {
-            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002");
+            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002",2,5);
             itemList.add(totebag);
             assertEquals(8950, promotionOnQuantityOfItem.applyPromotion(itemList, 8950));
         }
@@ -45,7 +45,7 @@ class PromotionOnQuantityOfItemTest {
         @Test
         @DisplayName("test ApplyPromotion OneKey Chain")
         void testApplyPromotion1() {
-            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002");
+            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002",2,5);
 
             List<Item> itemList = new ArrayList<>();
             itemList.add(keychain);
@@ -56,7 +56,7 @@ class PromotionOnQuantityOfItemTest {
         @Test
         @DisplayName("test ApplyPromotion two Chain")
         void testApplyPromotion2() {
-            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002");
+            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002",2,5);
 
             ArrayList<Item> itemList = new ArrayList<>();
             itemList.add(keychain);
@@ -68,7 +68,7 @@ class PromotionOnQuantityOfItemTest {
         @Test
         @DisplayName("test ApplyPromotion more than two Chain")
         void testApplyPromotion3() {
-            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002");
+            PromotionOnQuantityOfItem promotionOnQuantityOfItem = new PromotionOnQuantityOfItem("3000-002",2,5);
 
             ArrayList<Item> itemList = new ArrayList<>();
             itemList.add(keychain);
@@ -80,7 +80,7 @@ class PromotionOnQuantityOfItemTest {
 
     @Test
     void testIsActive() {
-        assertTrue((new PromotionOnQuantityOfItem("3000-002")).isActive());
+        assertTrue((new PromotionOnQuantityOfItem("3000-002",2,5)).isActive());
     }
 }
 

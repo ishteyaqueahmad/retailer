@@ -6,9 +6,13 @@ public class PromotionOnQuantityOfItem implements Promotion{
 
 
     private String promotionalItemCode ;
+    private int noOfItem;
+    private int discountAmount;
 
-    public PromotionOnQuantityOfItem(String promotionalItemCode) {
+    public PromotionOnQuantityOfItem(String promotionalItemCode, int noOfItem, int discountAmount) {
         this.promotionalItemCode = promotionalItemCode;
+        this.noOfItem = noOfItem;
+        this.discountAmount = discountAmount;
     }
 
     @Override
@@ -21,8 +25,11 @@ public class PromotionOnQuantityOfItem implements Promotion{
         long itemCount = items.stream()
                 .filter(item -> item.getProductCode().equals(promotionalItemCode))
                 .count();
-        if (itemCount >= 2)
-            totalPurchaseAmount -= itemCount * 5;
+        noOfItem = 2;
+        if (itemCount >= noOfItem) {
+            discountAmount = 5;
+            totalPurchaseAmount -= itemCount * discountAmount;
+        }
         return totalPurchaseAmount;
     }
 }
